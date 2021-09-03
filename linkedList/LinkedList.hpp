@@ -32,12 +32,8 @@ int LinkedList<T>::size() const
 	/** TODO
 		Fix this method
 	*/
-	if(m_size >= 0){
-		return(m_size);
-	}
-	else{
-		return(0);
-	}
+
+	return(m_size);
 }
 
 template <typename T>
