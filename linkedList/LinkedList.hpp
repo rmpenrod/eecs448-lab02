@@ -130,7 +130,7 @@ bool LinkedList<T>::removeBack()
 	}
 	else{
 		secondintoLast = m_front;
-		while(secondintoLast->getNext()->getNext() != nulptr){
+		while(secondintoLast->getNext()->getNext() != nullptr){
 			secondintoLast = secondintoLast->getNext();
 		}
 		lastNode = secondintoLast->getNext();
