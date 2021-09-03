@@ -47,6 +47,8 @@ bool LinkedList<T>::search(T value) const
 
 	/** TODO
 		Fix this method
+
+		Should be Done
 	*/
 
 	for(int i = 0; i < m_size; i++){
@@ -109,14 +111,27 @@ void LinkedList<T>::addFront(T value)
 template <typename T>
 bool LinkedList<T>::removeBack()
 {
-	Node<T>* lastNode = nullptr;
-	Node<T>* secondintoLast = nullptr;
+	Node<T>* lastNode = m_front;
+	Node<T>* secondintoLast = m_front;
 	bool isRemoved = false;
 
 	/** TODO
 		Fix this method
 	*/
-
+	if(!isEmpty()){
+		for(int i = 0; i < (m_size-1); i++){
+			lastNode = lastNode->getNext();
+		}
+		for(int i = 0; i < (m_size-2); i++){
+			secondintoLast = secondintoLast->getNext();
+		}
+		secondintoLast->setNext(nullptr);
+		if(m_size == 1){
+			m_front = secondintoLast;
+		}
+		delete lastNode;
+		isRemoved = true;
+	}
 	return(isRemoved);
 }
 
