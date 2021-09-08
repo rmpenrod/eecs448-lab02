@@ -121,7 +121,7 @@ bool LinkedList<T>::removeBack()
 	if(m_front == nullptr){
 		return(isRemoved);
 	}
-	else if(m_front->getNext() == nullptr){
+	if(m_front->getNext() == nullptr){
 		lastNode = m_front;
 		m_front = nullptr;
 		delete lastNode;
@@ -129,18 +129,16 @@ bool LinkedList<T>::removeBack()
 		m_size--;
 		return(isRemoved);
 	}
-	else{
-		secondintoLast = m_front;
-		while(secondintoLast->getNext()->getNext() != nullptr){
-			secondintoLast = secondintoLast->getNext();
-		}
-		lastNode = secondintoLast->getNext();
-		delete lastNode;
-		secondintoLast = nullptr;
-		isRemoved = true;
-		m_size--;
-		return(isRemoved);
+	secondintoLast = m_front;
+	while(secondintoLast->getNext()->getNext() != nullptr){
+		secondintoLast = secondintoLast->getNext();
 	}
+	lastNode = secondintoLast->getNext();
+	delete lastNode;
+	secondintoLast->setNext(nullptr);
+	isRemoved = true;
+	m_size--;
+	return(isRemoved);
 }
 
 template <typename T>
